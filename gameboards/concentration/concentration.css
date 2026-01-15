@@ -1,1 +1,75 @@
 /* CSS for concentration game */
+
+:root {
+  --cardSize: 200px; /* variable for card dimensions */
+}
+
+* {
+  box-sizing: border-box;
+}
+
+#gameBoard {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 1rem;
+  grid-template-areas: 
+    ". . . ."
+    ". . . .";
+  
+}
+
+
+.card {
+  position: relative;
+  width: var(--cardSize);
+  height: var(--cardSize);
+  perspective: 500px; /* special CSS property relevant to 3D flips */
+}
+
+.cardContent {
+  position: absolute; /* positioning within the parent card object */
+  width: 100%;
+  height: 100%;
+  transition: transform 0.5s;
+  transform-style: preserve-3d; /* special CSS property relevant to 3D flips */
+}
+
+.card:hover .cardContent {
+  transform: rotateY(180deg); /* simulate a 3D flip */
+}
+
+.cardTop,
+.cardBottom {
+  position: absolute; /* positioning within the parent cardContent object */
+  display: flex; /* center content through flex and the next two properties */
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  border: 2px solid darkblue;
+  font-family: sans-serif;
+  font-size: 42px;
+  backface-visibility: hidden; /* special CSS property relevant to 3D flips */
+  border-radius: 10px;
+  box-shadow: 0 2px 8px #777;
+}
+
+.cardTop {
+  background-color: darkblue;
+  color: #eee;
+}
+
+.cardBottom {
+  background-color: #eee;
+  color: darkblue;
+  transform: rotateY(180deg); /* pre-flip so it appears on parent's flip */
+  font-size: 10rem;
+}
+
+
+.cardA .cardBottom { background-color: yellow; }
+.cardB .cardBottom { background-color: lightgreen; }
+.cardC .cardBottom { background-color: salmon; }
+.cardD .cardBottom { background-color: lightgray; }
