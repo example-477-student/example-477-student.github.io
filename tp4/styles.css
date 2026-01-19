@@ -9,16 +9,26 @@
 
 #gameBoard {
     position: relative;
-    width: calc( var(--gameBoardSize) - var(--gameBoardSpacer));
-    height: calc( var(--gameBoardSize) - var(--gameBoardSpacer));
+    width: calc( var(--gameBoardSize) - var(--gameBoardSpacer) );
+    height: calc( var(--gameBoardSize) - var(--gameBoardSpacer) );
     background-color: black;
 }
 
+.row {
+    position: relative;
+    float: left;
+    width: var(--gameBoardSize);
+    height: calc( ( var(--gameBoardSize) / 3 ) - var(--gameBoardSpacer) );
+    margin-bottom: var(--gameBoardSpacer);
+}
+
 .gameSpace {
-    position: absolute;
+    position: relative;
+    float: left;
     background-color: white;
     width: calc( ( var(--gameBoardSize) / 3 ) - var(--gameBoardSpacer) );
     height: calc( ( var(--gameBoardSize) / 3 ) - var(--gameBoardSpacer) );
+    margin-right: var(--gameBoardSpacer);
     font-family: "Twinkle Star";
     font-size: 10rem;
     overflow: hidden;
@@ -26,26 +36,4 @@
     text-transform: uppercase;
 }
 
-.row1 {
-    top: 0;
-}
 
-.row2 {
-    top: calc( var(--gameBoardSize) / 3 );
-}
-
-.row3 {
-    top: calc( ( var(--gameBoardSize) / 3 ) * 2 );
-}
-
-.col1 {
-    left: 0;
-}
-
-.col2 {
-    left: calc( var(--gameBoardSize) / 3 );
-}
-
-.col3 {
-    left: calc( ( var(--gameBoardSize) / 3 ) * 2 );
-}
