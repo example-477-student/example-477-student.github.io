@@ -5,7 +5,7 @@
 }
 
 :root {
-  --cardSize: 250px; /* variable for card dimensions */
+  --cardSize: 40vw; /* variable for card dimensions */
 }
 
 
@@ -79,9 +79,21 @@
 #gameBoard {
     position: relative;
     display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    gap: 1rem;
+    width: 100vw;
+}
+
+@media screen and (orientation: landscape) {
+
+  :root {
+    --cardSize: 20vw;
+  }
+
+  #gameBoard {
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr;
-    gap: 1rem;
-    width: 75vw;
-    margin: 0 auto;
+  }
+
 }
