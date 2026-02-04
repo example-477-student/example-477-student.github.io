@@ -1,11 +1,19 @@
 /* styles for Concentration board */
+/* this has been slightly updated with more variables since the demo video */
 
 * {
     box-sizing: border-box;
 }
 
 :root {
-  --cardSize: 40vw; /* variable for card dimensions */
+  --boardWidth: 100vw; /* variable for overall board dimensions */
+  --boardGap: 1vw;
+  --cardSize: calc( ( var(--boardWidth) - var(--boardGap) ) / 2); /* calculated variable for card dimensions */
+}
+
+body {
+  margin: var(--boardGap) 0 0 0;
+  padding: 0;
 }
 
 
@@ -16,7 +24,6 @@
   width: var(--cardSize);
   height: var(--cardSize);
   perspective: 500px; /* special CSS property relevant to 3D flips */
-  margin-bottom: 1rem;
 }
 
 .cardContent {
@@ -81,19 +88,21 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr;
-    gap: 1rem;
-    width: 100vw;
+    gap: var(--boardGap);
+    width: var(--boardWidth);
 }
 
 @media screen and (orientation: landscape) {
 
   :root {
-    --cardSize: 20vw;
+    --boardWidth: 80vw; /* variable for overall board dimensions */
+    --cardSize: calc( ( var(--boardWidth) - (3 * var(--boardGap) ) ) / 4); /* calculated variable for card dimensions */
   }
 
   #gameBoard {
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr;
+    margin: 0 auto;
   }
 
 }
