@@ -65,6 +65,34 @@ function checkGameboard(a, b, c){
 
 
 
+// event listener to wait for the document to load
+document.addEventListener("DOMContentLoaded", function(){
+
+    let allSpaces = document.querySelectorAll(".gameSpace");
+
+    for (x=0)
+
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // call your function checkGameboard() with the 3 rows
 let winState = checkGameboard(rowA, rowB, rowC);
