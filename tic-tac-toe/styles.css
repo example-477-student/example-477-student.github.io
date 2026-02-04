@@ -36,4 +36,25 @@
     text-transform: uppercase;
 }
 
+.gameSpace:hover {
+    background-color: lightcyan;
+}
 
+.gameSpace.clicked:hover {
+    background-color: white;
+}
+
+
+#gameResult {
+    position: absolute;
+    display: none;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: red;
+    color: white;
+    font-size: 5rem;
+    text-align: center;
+    z-index: 1;
+}
