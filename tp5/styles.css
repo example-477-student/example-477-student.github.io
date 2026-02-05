@@ -11,7 +11,7 @@
 :root {
   --boardWidth: 100vw; /* variable for overall board dimensions */
   --boardGap: 1vw;
-  --cardSize: calc( ( var(--boardWidth) - var(--boardGap) ) / 2); /* calculated variable for card dimensions */
+  --cardSize: calc( ( var(--boardWidth) - var(--boardGap) ) / 2); /* calculated variable for mobile card dimensions */
 }
 
 body {
@@ -145,7 +145,7 @@ body {
 
   :root {
     --boardWidth: 80vw; /* variable for overall board dimensions */
-    --cardSize: calc( ( var(--boardWidth) - (3 * var(--boardGap) ) ) / 4); /* calculated variable for card dimensions */
+    --cardSize: calc( ( var(--boardWidth) - (3 * var(--boardGap) ) ) / 4); /* calculated variable for landscape card dimensions */
   }
 
   #gameBoard {
