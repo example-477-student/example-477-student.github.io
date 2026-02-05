@@ -1,5 +1,8 @@
 /* styles for Concentration board */
-/* this has been slightly updated with more variables since the demo video */
+
+/* NOTE: this has been slightly updated with more variables since the demo video */
+/* And, card designs were added using CSS patterns from https://css-pattern.com/ */
+
 
 * {
     box-sizing: border-box;
@@ -62,21 +65,67 @@ body {
 
 
 /************************************** specific card styling */
+/* patterns added using CSS from https://css-pattern.com/ */
 
 .pair1 .cardBottom {
-    background-color: red;
+  --s: 150px; /* control the size*/
+  --c1: #f7d2a1;
+  --c2: #05057e;
+  
+  --_g: 
+     var(--c1) 0%  5% ,var(--c2) 6%  15%,var(--c1) 16% 25%,var(--c2) 26% 35%,var(--c1) 36% 45%,
+     var(--c2) 46% 55%,var(--c1) 56% 65%,var(--c2) 66% 75%,var(--c1) 76% 85%,var(--c2) 86% 95%,
+     #0000 96%;
+  background:
+    radial-gradient(50% 50% at 100% 0,var(--_g)),
+    radial-gradient(50% 50% at 0 100%,var(--_g)),
+    radial-gradient(50% 50%,var(--_g)),
+    radial-gradient(50% 50%,var(--_g)) calc(var(--s)/2) calc(var(--s)/2)
+    var(--c1);
+  background-size: var(--s) var(--s);
 }
 
 .pair2 .cardBottom {
-    background-color: green;
+  --s: 120px; /* control the size*/
+  --c1: #fa6900;
+  --c2: #d95b43;
+  --c3: #ecd078;
+  
+  background:
+    conic-gradient(from 150deg at 50% 33%,#0000,var(--c1) .5deg 60deg,#0000 60.5deg) 
+      calc(var(--s)/2) calc(var(--s)/sqrt(2)),
+    conic-gradient(from -30deg at 50% 66%,#0000,var(--c2) .5deg 60deg,var(--c3) 60.5deg);
+  background-size: var(--s) calc(.5*var(--s)/tan(30deg));
 }
 
 .pair3 .cardBottom {
-    background-color: yellow;
+  --s: 100px; /* control the size*/
+  --c1: #eceddc;
+  --c2: #29ab87;
+  
+  --_g: var(--c1) 90deg,#0000 90.5deg;
+  background:
+   conic-gradient(from -45deg,var(--_g)),
+   conic-gradient(from 135deg,var(--_g)) calc(var(--s)/2) 0,
+   var(--c2);
+  background-size: var(--s) var(--s)
 }
 
 .pair4 .cardBottom {
-    background-color: gray;
+  --s: 60px; /* control the size*/
+  --c1: #ffdc56;
+  --c2: #fe6601;
+  --c3: #803201;
+  
+  --_s: calc(2*var(--s)) calc(2*var(--s));
+  --_g1: var(--_s) conic-gradient(at calc(500%/6) 50%,var(--c3) 25%,#0000 0);
+  --_g2: var(--_s) conic-gradient(at calc(200%/3) 50%,var(--c2) 25%,#0000 0);
+  background:
+    var(--s) var(--s)/var(--_g1),0 0/var(--_g1),
+    var(--s) var(--s)/var(--_g2),0 0/var(--_g2),
+    repeating-conic-gradient(var(--c1) 0 25%,#0000 0 50%) 0 0/var(--_s),
+    linear-gradient(var(--c1) calc(100%/3),var(--c2) 0 calc(200%/3),var(--c3) 0)
+     0 0/var(--s) var(--s);
 }
 
 
