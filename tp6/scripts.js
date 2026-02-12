@@ -1,4 +1,4 @@
-/* javascript to enabled drag-scrolling */
+/* javascript to enable drag-scrolling */
 
 let scrollingBox;
 let offsetLeftStart;

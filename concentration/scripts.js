@@ -14,7 +14,7 @@ function clearClicks() {
         eachCard.classList.remove("clicked");
     }
 
-    // increase player turn count by 1
+    // increase player turn count by 1 and update screen
     playerClicks++;
     document.querySelector("#turnCount span").innerHTML = playerClicks;
 
