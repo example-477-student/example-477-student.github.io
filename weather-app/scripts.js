@@ -1,5 +1,17 @@
 /* javascript to enable drag-scrolling */
 
+// weather API global variables
+const weatherUrl = 'https://weatherapi-com.p.rapidapi.com/forecast.json?days=3&q=';
+const weatherOptions = {
+	method: 'GET',
+	headers: {
+		'x-rapidapi-key': 'b1191f052bmsh9393381bd6d8022p103498jsna1764183a67a',
+		'x-rapidapi-host': 'weatherapi-com.p.rapidapi.com',
+		'Content-Type': 'application/json'
+	}
+};
+
+
 // preparing variables
 let scrollingBox;
 let offsetLeftStart;
@@ -82,17 +94,51 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 
-    let sampleURL = "https://tordevries.github.io/477/examples/ajax-api-test/current-forecast.js";
-    let sampleOptions = {};
 
+    // ipLookup data
+    let ipLookupURL = "https://api.ipify.org/?format=json";
+    let ipLookupOptios = {};
 
-    // get sample data
-    getData(sampleURL, sampleOptions).then(function (result) {
-        // code to operate on “result” JSON object
-        updateWeather(result);
+    // use ajax to fetch IP in JSON format
+    getData(ipLookupURL, ipLookupOptios).then(function(result) {
+        
+        // adding the IP number to the weather URL for lookup
+        let weatherLookupURL = weatherUrl + result.ip;
+        console.log(weatherLookupURL);
+
+        // use the resulting IP number to look up weather
+        getData(weatherLookupURL, weatherOptions).then(function(weatherResult){
+            console.log(weatherResult);
+            updateWeather(weatherResult);
+        });
+
     });
 
 
+    // make the location button show the modal popups
+    document.querySelector("#findLocation").addEventListener("click", function(){
+        document.body.classList.toggle("showModal");
+    });
+
+    document.querySelector("#locationForm").addEventListener("submit", function(event){
+
+        // stop form from submitting to server
+	    event.preventDefault();
+
+        document.body.classList.toggle("showModal");
+        let newLocation = document.querySelector("#locationBox").value;
+
+        // adding the passed value to the weather URL for lookup
+        let weatherLookupURL = weatherUrl + newLocation;
+        console.log(weatherLookupURL);
+
+        // use the resulting IP number to look up weather
+        getData(weatherLookupURL, weatherOptions).then(function(weatherResult){
+            console.log(weatherResult);
+            updateWeather(weatherResult);
+        });
+
+    });
 
 });
 
