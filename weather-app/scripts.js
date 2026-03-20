@@ -55,7 +55,7 @@ function updateWeather(weatherObject) {
     for (i = 0; i < futureDays.length; i++) {
 
         // update future temp
-        futureDays[i].querySelector(".futureTemp").innerHTML = weatherObject.forecast.forecastday[i].day.maxtemp_f;
+        futureDays[i].querySelector(".futureTemp span").innerHTML = weatherObject.forecast.forecastday[i].day.maxtemp_f;
 
         // update future windspeed
         windspeed = weatherObject.forecast.forecastday[i].day.maxwind_mph;
